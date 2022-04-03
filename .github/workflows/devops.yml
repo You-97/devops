@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
@@ -23,4 +23,4 @@ jobs:
     - name: Build the docker image
       run: docker build . --file Dockerfile --tag chamodshehanka/node-test:$(date +%s)
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/devops
+      run: docker push ${{secrets.DOCKER_USER}}/devops:${{ steps.date.outputs.date }}
