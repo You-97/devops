@@ -27,7 +27,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: kerburos/hello-github-actions
+          images: kerburos/hello-github-actions:v2
 
       - name: Build and push
         uses: docker/build-push-action@v2
